@@ -1,0 +1,472 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "collapsed_sections": [
+        "ra45s33wUt-C",
+        "ia9UtA0cU1Iy",
+        "eecUb-akU1ji",
+        "QGrsZrv5U1s8"
+      ],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Weeqeen/Homeworks/blob/main/%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B0%20%E2%84%968\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Задание 1"
+      ],
+      "metadata": {
+        "id": "ra45s33wUt-C"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Задача: Создать чат бота для получения информации об исследованиях космоса\n",
+        "\n",
+        "Описание: Создайте комплексное приложение командной строки, которое будет использоваться в качестве панели управления исследованиями космоса. Данное приложение будет обращаться к https://api.nasa.gov/ для предоставления пользователям набора информации о космосе, включая:\n",
+        "\n",
+        "- Астрономическая картинка дня (APOD): Отображение APOD с пояснениями к нему.\n",
+        "- Фотографии с марсохода: позволяет пользователям выбирать и фильтровать фотографии с марсохода по дате и типу камеры.\n",
+        "- Объекты, сближающиеся с Землей (ОСЗ): Поиск и отображение информации об объекте, сближающихся с Землей, на определенную дату, включая их размеры и потенциальную опасность.\n",
+        "- Данные о космической погоде: Отображают последние данные о космической погоде, включая солнечные вспышки и геомагнитные бури.\n",
+        "Приложение должно позволять пользователям ориентироваться в этих функциях, корректно обрабатывать ошибки и обеспечивать удобство работы.\n",
+        "\n",
+        "Требования:\n",
+        "- Пользовательский ввод: Приложение должно предложить пользователю ввести данные, чтобы выбрать, какую функцию он хочет изучить.\n",
+        "- Проверка данных: Убедитесь, что пользовательские данные (например, даты) проверены.\n",
+        "- Обработка ошибок: Корректно обрабатывайте ошибки API и неверные ответы.\n",
+        "- Представление данных: Представляйте данные в четкой и организованной форме.\n",
+        "- Опция выхода: позволяет пользователям выходить из приложения в любое время."
+      ],
+      "metadata": {
+        "id": "G56D5mNCUwp5"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "wGeJM9n4UqUD",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 356
+        },
+        "outputId": "1e7631e7-a5b9-469f-e84e-fa4ced6d6e0e"
+      },
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "KeyboardInterrupt",
+          "evalue": "Interrupted by user",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mKeyboardInterrupt\u001b[0m                         Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-70-09c463db6608>\u001b[0m in \u001b[0;36m<cell line: 47>\u001b[0;34m()\u001b[0m\n\u001b[1;32m     46\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     47\u001b[0m \u001b[0;32mwhile\u001b[0m \u001b[0;32mTrue\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 48\u001b[0;31m     your_choice = input(f\"Введите номер функции:\"\n\u001b[0m\u001b[1;32m     49\u001b[0m                     \u001b[0;34mf\"\\n1. Астрономическая картинка дня (APOD): Отображение APOD с пояснениями к нему:\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     50\u001b[0m                     \u001b[0;34mf\"\\n2. Фотография с марсохода по типу камеры и дню.\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.10/dist-packages/ipykernel/kernelbase.py\u001b[0m in \u001b[0;36mraw_input\u001b[0;34m(self, prompt)\u001b[0m\n\u001b[1;32m    849\u001b[0m                 \u001b[0;34m\"raw_input was called, but this frontend does not support input requests.\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    850\u001b[0m             )\n\u001b[0;32m--> 851\u001b[0;31m         return self._input_request(str(prompt),\n\u001b[0m\u001b[1;32m    852\u001b[0m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_parent_ident\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    853\u001b[0m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_parent_header\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.10/dist-packages/ipykernel/kernelbase.py\u001b[0m in \u001b[0;36m_input_request\u001b[0;34m(self, prompt, ident, parent, password)\u001b[0m\n\u001b[1;32m    893\u001b[0m             \u001b[0;32mexcept\u001b[0m \u001b[0mKeyboardInterrupt\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    894\u001b[0m                 \u001b[0;31m# re-raise KeyboardInterrupt, to truncate traceback\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 895\u001b[0;31m                 \u001b[0;32mraise\u001b[0m \u001b[0mKeyboardInterrupt\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Interrupted by user\"\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0;32mNone\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    896\u001b[0m             \u001b[0;32mexcept\u001b[0m \u001b[0mException\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0me\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    897\u001b[0m                 \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mlog\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mwarning\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Invalid Message:\"\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mexc_info\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;32mTrue\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mKeyboardInterrupt\u001b[0m: Interrupted by user"
+          ]
+        }
+      ],
+      "source": [
+        "import requests\n",
+        "\n",
+        "\n",
+        "def send_requests(url):\n",
+        "    response = requests.get(url)\n",
+        "    if response.status_code == 200:\n",
+        "        return response.json()\n",
+        "    return None\n",
+        "\n",
+        "\n",
+        "def astronomical_picture(data):\n",
+        "    picture, title, explanation, date = data[\"hdurl\"], data[\"title\"], data[\"explanation\"], data[\"date\"]\n",
+        "    return f\"Ссылка на астрономическую картинку: {picture}\\nНазвание: {title}\\nОбъяснение: {explanation}\\nДата: {date}\"\n",
+        "\n",
+        "\n",
+        "def rover_photos(url, date_camera):\n",
+        "    data = send_requests(url)\n",
+        "    for i in range(len(data[\"photos\"])):\n",
+        "        if (date_camera[0] == data[\"photos\"][i][\"rover\"][\"launch_date\"]) and (date_camera[1] == data[\"photos\"][i][\"camera\"][\"name\"]):\n",
+        "            return f'{data[\"photos\"][i][\"img_src\"]}'\n",
+        "        else:\n",
+        "            return f\"Произошла ошибка.\"\n",
+        "\n",
+        "\n",
+        "def near_Earth_objects(url, object_name):\n",
+        "    data = send_requests(url)\n",
+        "    for k in data[\"near_earth_objects\"].keys():\n",
+        "        if name == data[\"near_earth_objects\"][k][0][\"name\"]:\n",
+        "            size = data[\"near_earth_objects\"][k][0][\"estimated_diameter\"][\"meters\"][\"estimated_diameter_max\"]\n",
+        "            if data[\"near_earth_objects\"][k][0][\"is_potentially_hazardous_asteroid\"]:\n",
+        "                threat = \"Потенциальная угроза есть.\"\n",
+        "            else:\n",
+        "                dangerous = \"Потенциальной угрозы нет.\"\n",
+        "            return f\"Дата: {k}\\nРазмер: {size}\\n{threat}\"\n",
+        "\n",
+        "\n",
+        "def space_weather():\n",
+        "    url_sun = \"https://api.nasa.gov/DONKI/FLR?startDate=yyyy-MM-dd&endDate=yyyy-MM-dd&api_key=aWX4hFeEGxMKennDmn79fMagjSG86uCeztp3hfkN\"\n",
+        "    data_sun = send_requests(url_sun)\n",
+        "\n",
+        "    url_geo_storm = \"https://api.nasa.gov/DONKI/GST?startDate=yyyy-MM-dd&endDate=yyyy-MM-dd&api_key=aWX4hFeEGxMKennDmn79fMagjSG86uCeztp3hfkN\"\n",
+        "    data_storms = send_requests(url_geo_storm)\n",
+        "\n",
+        "    return f'Солнечная вспышка {data_sun}\\nГеомагнитная буря {data_storms}'\n",
+        "\n",
+        "\n",
+        "while True:\n",
+        "    your_choice = input(f\"Введите номер функции:\"\n",
+        "                    f\"\\n1. Астрономическая картинка дня (APOD): Отображение APOD с пояснениями к нему:\"\n",
+        "                    f\"\\n2. Фотография с марсохода по типу камеры и дню.\"\n",
+        "                    f\"\\n3. Поиск и отображение информации об объекте, сближающихся с Землей, на определенную дату.\"\n",
+        "                    f\"\\n4. Отображение последних данных о космической погоде.\"\n",
+        "                    f\"\\n5. Для выхода просто нажмите кнопку 'enter': \"\n",
+        "                    f\"\\nВаш номер функции: \")\n",
+        "\n",
+        "    if your_choice == \"1\":\n",
+        "        url = \"https://api.nasa.gov/planetary/apod?api_key=aWX4hFeEGxMKennDmn79fMagjSG86uCeztp3hfkN\"\n",
+        "        data = send_requests(url)\n",
+        "        print(astronomical_picture(data))\n",
+        "    elif your_choice == \"2\":\n",
+        "        url_rovers  = \"https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=aWX4hFeEGxMKennDmn79fMagjSG86uCeztp3hfkN\"\n",
+        "        date_camera = input(\"Введите дату и тип камеры через запятую с пробелом: \").split(\", \")\n",
+        "        print(rover_photos(url_rovers, date_camera))\n",
+        "    elif your_choice == \"3\":\n",
+        "        name = input(\"Введите название объекта: \")\n",
+        "        dates = input(\"Введите дату начала и конца сближения объекта(через запятую и с разницей максимум в неделю): \").split(\", \")\n",
+        "        url_neo = f\"https://api.nasa.gov/neo/rest/v1/feed?start_date={dates[0]}&end_date={dates[1]}&api_key=aWX4hFeEGxMKennDmn79fMagjSG86uCeztp3hfkN\"\n",
+        "        print(near_Earth_objects(url_neo, name))\n",
+        "    elif your_choice == \"4\":\n",
+        "        print(space_weather())"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Задание 2"
+      ],
+      "metadata": {
+        "id": "ia9UtA0cU1Iy"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Описание задачи\n",
+        "\n",
+        "Цель этой задачи - создать скрипт на Python, который взаимодействует с API Чикагского института искусств (https://api.artic.edu/docs/) для извлечения и отображения произведений искусства. Скрипт должен позволять пользователям просматривать работы по страницам, фильтровать их по имени художника и просматривать подробную информацию о выбранных произведениях искусства. Ниже приведены требования и функциональные возможности, которые необходимо реализовать:\n",
+        "\n",
+        "Требования:\n",
+        "Извлекать произведения искусства:\n",
+        "\n",
+        "- Создайте функцию, которая извлекает список произведений искусства из API Чикагского института искусств.\n",
+        "Функция должна принимать параметр page для разбивки на страницы и возвращать список произведений искусства вместе с информацией о разбивке на страницы.\n",
+        "Фильтровать произведения искусства:\n",
+        "\n",
+        "- Реализуйте функцию, которая фильтрует список произведений искусства на основе имени указанного художника. Функция должна возвращать список работ, которые соответствуют имени художника (без учета регистра).\n",
+        "Отображать подробную информацию об оформлении:\n",
+        "\n",
+        "- Напишите функцию, которая отображает названия работ для пользователя и позволяет ему выбрать одну из них, введя соответствующий номер.\n",
+        "После выбора функция должна отображать подробную информацию о выбранном произведении, включая название, исполнителя, дату и носитель.\n",
+        "Разбивка на страницы и взаимодействие с пользователем:\n",
+        "\n",
+        "- Создайте основную функцию, которая управляет выборкой произведений и взаимодействием с пользователем.\n",
+        "\n",
+        "Разрешите пользователям перемещаться по страницам с произведениями искусства, выполнять фильтрацию по исполнителю или выходить из программы.\n",
+        "\n",
+        "Если страниц с произведениями искусства несколько, укажите варианты перехода к следующей странице, предыдущей странице, фильтрации по исполнителю или выхода из программы."
+      ],
+      "metadata": {
+        "id": "Ofu_GmqrU1Iy"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "jjUH1GznU1Iy",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 1000
+        },
+        "outputId": "de436325-e64f-48a0-96fb-50f934d4738b"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            "Page 1 of 10527\n",
+            "Введите действие из нижеприведенного списка:\n",
+            "'next' - следующая страница\n",
+            "'previous' - предыдущая страница\n",
+            "'quit' - выйти с функции\n",
+            "'filter' - фильтрация по художнику\n",
+            "Ваш ввод:next\n",
+            "\n",
+            "Page 2 of 10527\n",
+            "Введите действие из нижеприведенного списка:\n",
+            "'next' - следующая страница\n",
+            "'previous' - предыдущая страница\n",
+            "'quit' - выйти с функции\n",
+            "'filter' - фильтрация по художнику\n",
+            "Ваш ввод:nxet\n",
+            "Неправильный ввод. Попробуйте ещё раз!!!\n",
+            "\n",
+            "Page 2 of 10527\n",
+            "Введите действие из нижеприведенного списка:\n",
+            "'next' - следующая страница\n",
+            "'previous' - предыдущая страница\n",
+            "'quit' - выйти с функции\n",
+            "'filter' - фильтрация по художнику\n",
+            "Ваш ввод:next\n",
+            "\n",
+            "Page 3 of 10527\n",
+            "Введите действие из нижеприведенного списка:\n",
+            "'next' - следующая страница\n",
+            "'previous' - предыдущая страница\n",
+            "'quit' - выйти с функции\n",
+            "'filter' - фильтрация по художнику\n",
+            "Ваш ввод:filter\n",
+            "Введите имя художник: Joseph Cornell\n",
+            "1, Untitled (Butterfly Habitat) by Joseph Cornell\n",
+            "Введите номер из списка произведения искусства для больших деталей: 1\n",
+            "Title: Untitled (Butterfly Habitat)\n",
+            "Artist: Joseph Cornell\n",
+            "Date: c. 1940\n",
+            "Medium: Unknown medium\n",
+            "\n",
+            "Page 3 of 10527\n"
+          ]
+        },
+        {
+          "output_type": "error",
+          "ename": "KeyboardInterrupt",
+          "evalue": "Interrupted by user",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mKeyboardInterrupt\u001b[0m                         Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-132-3b078ed80f9a>\u001b[0m in \u001b[0;36m<cell line: 77>\u001b[0;34m()\u001b[0m\n\u001b[1;32m     75\u001b[0m \u001b[0;31m#2 filter_by)artist(artworks)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     76\u001b[0m \u001b[0;31m#3 display_artworks(artworks)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 77\u001b[0;31m \u001b[0mmain\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;32m<ipython-input-132-3b078ed80f9a>\u001b[0m in \u001b[0;36mmain\u001b[0;34m()\u001b[0m\n\u001b[1;32m     50\u001b[0m       \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34mf\"\\nPage {page} of {pagination['total_pages']}\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     51\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 52\u001b[0;31m       \u001b[0maction\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0minput\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34mf\"Введите действие из нижеприведенного списка:\\n'next' - следующая страница\\n'previous' - предыдущая страница\\n'quit' - выйти с функции\\n'filter' - фильтрация по художнику\\nВаш ввод:\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     53\u001b[0m       \u001b[0;32mif\u001b[0m \u001b[0maction\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0;34m'next'\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     54\u001b[0m           \u001b[0;32mif\u001b[0m \u001b[0mpage\u001b[0m \u001b[0;34m<\u001b[0m \u001b[0mpagination\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'total_pages'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.10/dist-packages/ipykernel/kernelbase.py\u001b[0m in \u001b[0;36mraw_input\u001b[0;34m(self, prompt)\u001b[0m\n\u001b[1;32m    849\u001b[0m                 \u001b[0;34m\"raw_input was called, but this frontend does not support input requests.\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    850\u001b[0m             )\n\u001b[0;32m--> 851\u001b[0;31m         return self._input_request(str(prompt),\n\u001b[0m\u001b[1;32m    852\u001b[0m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_parent_ident\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    853\u001b[0m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_parent_header\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.10/dist-packages/ipykernel/kernelbase.py\u001b[0m in \u001b[0;36m_input_request\u001b[0;34m(self, prompt, ident, parent, password)\u001b[0m\n\u001b[1;32m    893\u001b[0m             \u001b[0;32mexcept\u001b[0m \u001b[0mKeyboardInterrupt\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    894\u001b[0m                 \u001b[0;31m# re-raise KeyboardInterrupt, to truncate traceback\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 895\u001b[0;31m                 \u001b[0;32mraise\u001b[0m \u001b[0mKeyboardInterrupt\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Interrupted by user\"\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0;32mNone\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    896\u001b[0m             \u001b[0;32mexcept\u001b[0m \u001b[0mException\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0me\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    897\u001b[0m                 \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mlog\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mwarning\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Invalid Message:\"\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mexc_info\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;32mTrue\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mKeyboardInterrupt\u001b[0m: Interrupted by user"
+          ]
+        }
+      ],
+      "source": [
+        "import requests\n",
+        "\n",
+        "\n",
+        "def fetch_artworks(page):\n",
+        "  url = f\"https://api.artic.edu/api/v1/artworks?page={page}\"\n",
+        "  response = requests.get(url)\n",
+        "\n",
+        "  if response.status_code == 200:\n",
+        "      data = response.json()\n",
+        "      return data[\"data\"], data[\"pagination\"]\n",
+        "  return None, None\n",
+        "\n",
+        "\n",
+        "def filter_by_artist(artworks):\n",
+        "    \"\"\"Функция фильтрации произведений искусства на основе имени указанного художника.\"\"\"\n",
+        "    artist_name = input(\"Введите имя художник: \")\n",
+        "    list1 = []\n",
+        "    for art in artworks:\n",
+        "        if art[\"artist_title\"]:\n",
+        "          if artist_name.lower() in art[\"artist_title\"].lower():\n",
+        "              list1.append(art)\n",
+        "    return list1\n",
+        "\n",
+        "\n",
+        "def display_details(art):\n",
+        "    \"\"\"Функция вывода подробную информацию о выбранном произведении.\n",
+        "    Информация включает название, исполнителя, дату и носитель.\"\"\"\n",
+        "    print(f\"Title: {art['title']}\")\n",
+        "    print(f\"Artist: {art.get('artist_title', 'Unknown')}\")\n",
+        "    print(f\"Date: {art.get('date_display', 'Unknown date')}\")\n",
+        "    print(f\"Medium: {art.get('medium.display', 'Unknown medium')}\")\n",
+        "\n",
+        "\n",
+        "def display_artworks(artworks):\n",
+        "    \"\"\"Функция отображения информации о произведениях искусства.\"\"\"\n",
+        "    for i, art in enumerate(artworks):\n",
+        "        print(f\"{i+1}, {art['title']} by {art.get('artist_title', 'Unknown')}\")\n",
+        "    choice = int(input(\"Введите номер из списка произведения искусства для больших деталей: \")) -1\n",
+        "    display_details(artworks[choice])\n",
+        "\n",
+        "\n",
+        "def main():\n",
+        "    page = 1\n",
+        "    while True:\n",
+        "      artworks, pagination = fetch_artworks(page)\n",
+        "      if not artworks:\n",
+        "          print(\"Не найдены произведения искусства!!!\")\n",
+        "          break\n",
+        "\n",
+        "      print(f\"\\nPage {page} of {pagination['total_pages']}\")\n",
+        "\n",
+        "      action = input(f\"Введите действие из нижеприведенного списка:\\n'next' - следующая страница\\n'previous' - предыдущая страница\\n'quit' - выйти с функции\\n'filter' - фильтрация по художнику\\nВаш ввод:\")\n",
+        "      if action == 'next':\n",
+        "          if page < pagination['total_pages']:\n",
+        "              page += 1\n",
+        "          else:\n",
+        "              print(\"Вы на последней странице!!!\")\n",
+        "      elif action == \"previous\":\n",
+        "          if page > 1:\n",
+        "              page -= 1\n",
+        "          else:\n",
+        "              print(\"Вы на первой странице!!!\")\n",
+        "      elif action == \"filter\":\n",
+        "          filtered_artworks = filter_by_artist(artworks)\n",
+        "          if filtered_artworks:\n",
+        "              display_artworks(filtered_artworks)\n",
+        "          else:\n",
+        "              print(\"Не найдено произведение искусства для данного художника.\")\n",
+        "      elif action == \"quit\":\n",
+        "          break\n",
+        "      else:\n",
+        "          print(\"Неправильный ввод. Попробуйте ещё раз!!!\")\n",
+        "\n",
+        "#1 fetch_artworks(page)\n",
+        "#2 filter_by)artist(artworks)\n",
+        "#3 display_artworks(artworks)\n",
+        "main()"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Задание 3"
+      ],
+      "metadata": {
+        "id": "eecUb-akU1ji"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Задача: Создать программу по управлению портфелем криптовалют\n",
+        "\n",
+        "Цель: Создать скрипт на Python, который извлекает цены на криптовалюты в режиме реального времени, позволяет пользователям управлять портфелем криптовалют, вычисляет общую стоимость портфеля, отслеживает изменения цен и предоставляет исторические данные о ценах для анализа.\n",
+        "\n",
+        "Требования:\n",
+        "Получение текущих цен на криптовалюты:\n",
+        "\n",
+        "Используйте https://docs.coingecko.com/ для получения актуальных цен на список криптовалют.\n",
+        "\n",
+        "Управление портфелем:\n",
+        "\n",
+        "- Позволяет пользователю создавать портфель криптовалют и управлять им, указывая количество каждой криптовалюты, которой он владеет.\n",
+        "- Расчитывает общую стоимость портфеля в указанной фиатной валюте (например, долларах США).\n",
+        "\n",
+        "Отслеживание изменения цен:\n",
+        "\n",
+        "- Отображение процентного изменения цены для каждой криптовалюты в портфеле за последние 24 часа.\n",
+        "- Выделите все криптовалюты, стоимость которых значительно увеличилась или снизилась.\n",
+        "\n",
+        "Поиск исторических данных о ценах:\n",
+        "\n",
+        "- Получение исторических данных о ценах на указанную криптовалюту за последнюю неделю.\n",
+        "- Предоставьте пользователю возможность визуализировать эти данные в простом текстовом формате (например, цены за день).\n",
+        "\n",
+        "Взаимодействие с пользователем:\n",
+        "\n",
+        "- Реализуйте интерфейс командной строки для ввода данных пользователем.\n",
+        "- Предоставьте опции для получения текущих цен, управления портфелем, просмотра изменений цен или анализа исторических данных.\n"
+      ],
+      "metadata": {
+        "id": "jsK7IKptU1ji"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "_0DToTqlvywa"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Дополнительно: Задание 4"
+      ],
+      "metadata": {
+        "id": "QGrsZrv5U1s8"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Задание 4: Проектное\n",
+        "\n",
+        "Вам необходимо самостоятельно найти откртое API предоставляющее информацию в открытом доступе и реализовать собственный проект!\n",
+        "\n",
+        "\n",
+        "Критерии приемки результата:\n",
+        "\n",
+        "- Проект включает в себя не менее 5 возможостей для пользователя\n",
+        "- Проект позволяет использовать все возможности проекта пользователю при помощи взаимодействия через коммандную строку\n",
+        "- Проект работает с открытым API (это значит что при проверке вашей работы преподавателем, преподавателю необходимо просто запустить ячейку с кодом вашего проекта и она будет работать без дополнительных манипуляции)\n",
+        "- Проект должен обязательно включать в себя ряд используемых конструкции:\n",
+        "    - Функции\n",
+        "    - Условные конструкции\n",
+        "    - Ввод/вывод\n",
+        "    - Словари/Списки\n",
+        "- Допускается использование библиотек:\n",
+        "    - requests\n",
+        "    - datetime\n",
+        "    - random"
+      ],
+      "metadata": {
+        "id": "qs_XITmYU1s8"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Здесь добавьте описание вашего проекта**"
+      ],
+      "metadata": {
+        "id": "VKXhaJi4FL0B"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "wiA55k1KU1s8"
+      },
+      "outputs": [],
+      "source": [
+        "#  А здесь код"
+      ]
+    }
+  ]
+}
